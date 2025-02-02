@@ -9,7 +9,7 @@ services:
       MONGO_INITDB_ROOT_USERNAME: 'devbills'
       MONGO_INITDB_ROOT_PASSWORD: 'pass123'
     ports: 
-      - '2017:27017'
+      - '27017:27017'
     networks:
       - local
 
