@@ -3,9 +3,9 @@ import express, { json } from "express";
 import { router } from "./routes";
 import { setupMongo } from "./database";
 
-const app = express();
-
 setupMongo().then(() => {
+  const app = express();
+
   app.use(json());
   app.use(router)
 
