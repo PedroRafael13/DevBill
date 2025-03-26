@@ -3,6 +3,7 @@ import { CategoryServices } from "../service/categoryService";
 import { CategoryModel } from "../database/schemas/category.schema";
 import { CategoriesRepository } from "../database/repositories/categories.repository";
 import { CreateCategoryDTO } from "../dto/categories.dto";
+import { z } from "zod"
 
 export class CategoriesController {
   async create
@@ -11,6 +12,11 @@ export class CategoriesController {
       next: NextFunction
     ) {
     try {
+      const validateSchema = z.object({
+        title: z.string(),
+        color: z.string().regex(/^#(A-Fa-f0-9){6}$/),
+      })
+
       const { title, color } = req.body
       const repository = new CategoriesRepository(CategoryModel)
       const service = new CategoryServices(repository)
