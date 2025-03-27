@@ -11,5 +11,5 @@ categorieRoutes.post('/', validator({
   schema: createCategorySchema,
   type: ParamsType.Body,
 }),
-  controller.create,
+  controller.create.bind(controller),
 )

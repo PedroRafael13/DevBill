@@ -5,7 +5,7 @@ import { StatusCodes } from "http-status-codes";
 
 export enum ParamsType {
   Query = "query",
-  Body = "b"
+  Body = "body"
 }
 
 type validateParams = {
