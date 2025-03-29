@@ -7,6 +7,8 @@ export const categorieRoutes = Router()
 
 const controller = new CategoriesController()
 
+categorieRoutes.get("/", controller.index)
+
 categorieRoutes.post('/', validator({
   schema: createCategorySchema,
   type: ParamsType.Body,
